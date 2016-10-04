@@ -1,0 +1,25 @@
+{
+  "name": "react-native-appreview",
+  "version": "1.0.0",
+  "description": "App review dialog with stars",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/creotiv/react-native-appreview.git"
+  },
+  "keywords": [
+    "react-native",
+    "react-component",
+    "ui",
+    "app-review"
+  ],
+  "author": "Andrey Nikishaev <creotiv@gmail.com> (https://medium.com/@a.nikishaev)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/creotiv/react-native-appreview/issues"
+  },
+  "homepage": "https://github.com/creotiv/react-native-appreview#readme"
+}
