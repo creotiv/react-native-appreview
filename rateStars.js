@@ -17,23 +17,26 @@ class RateStars extends Component {
     style: PropTypes.object
   }
 
-  defaultProps: {
-    margin: 0
-  }
-
   constructor(props) {
     super(props);
-    this.state = {
-      starsClickAnim: new Animated.Value(0),
-      starsClicked: 0
-    };
     this._starPressed = this._starPressed.bind(this);
     this._getViews = this._getViews.bind(this);
     this._starsShow = this._starsShow.bind(this);
     this._onSet = this._onSet.bind(this);
+    this._clicked = false;
+  }
+
+  componentWillMount() {
+    this.state = {
+      starsClickAnim: new Animated.Value(0),
+      starsClicked: 0
+    };
   }
 
   _starPressed(stars) {
+    if (this._clicked)
+      return;
+    this._clicked = true;
     this.state.starsClickAnim.setValue(0);
     this.setState({starsClicked:stars}); 
     Animated.spring(this.state.starsClickAnim, {
@@ -49,8 +52,9 @@ class RateStars extends Component {
   }
 
   _onSet() {
-    if(this.props.onSet) {
+    if(this.props.onSet && this.state.starsClicked > 0) {
       this.props.onSet(this.state.starsClicked);
+      this._clicked = false;
     }
   }
 
@@ -113,6 +117,12 @@ class RateStars extends Component {
 
     return views
   }
+}
+
+RateStars.defaultProps = {
+  style: {
+    margin: 25
+  }  
 }
 
 export default RateStars;

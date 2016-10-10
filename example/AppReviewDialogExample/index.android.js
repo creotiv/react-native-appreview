@@ -9,24 +9,24 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
+  Alert,
   View
 } from 'react-native';
-import AppReview from './comp/index';
+import AppReview from 'react-native-appreview';
 
 class AppReviewDialogExample extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      dialogOpen: false,
+      dialogVisible: true
     };
-
     this.showReview = this.showReview.bind(this);
     this._onLayout = this._onLayout.bind(this);
   }
 
   showReview() {
-    this.setState({dialogOpen: true});
+    this.setState({dialogVisible: true});
   }
 
   _onLayout(event) {
@@ -39,7 +39,9 @@ class AppReviewDialogExample extends Component {
         <Text style={styles.openbtn} onPress={()=>{this.showReview()}}>
           Open review dialog
         </Text>
-        <AppReview ref={"app_review"} visible={this.state.dialogOpen} animationDuration={200}/>
+        <AppReview ref={"app_review"} visible={this.state.dialogVisible} onClose={(obj)=>{this.setState({dialogVisible: false});Alert.alert(
+            'App Rated',
+            "rate: "+obj.rate+" dont show again: "+obj.dontShowAgain)}}/>
       </View>
     );
   }
