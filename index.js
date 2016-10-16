@@ -27,7 +27,11 @@ class AppReview extends Component {
     animationDuration: PropTypes.number,
     onClose: PropTypes.func,
     style: PropTypes.object,
-    visible: PropTypes.boolean
+    visible: PropTypes.boolean,
+    bodyText: PropTypes.string,
+    headerText: PropTypes.string,
+    closeButtonText: propTypes.string,
+    dontShowButtonText: propTypes.string
   }
 
   constructor(props) {
