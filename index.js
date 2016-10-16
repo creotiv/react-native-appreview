@@ -260,21 +260,16 @@ class AppReview extends Component {
           
           <RateStars width={360} onSet={(rate)=>{this.rate = rate;this.close()}}/>
           
-          
-          <View style={{marginLeft:30, marginRight:30, flexDirection:"row", justifyContent: 'space-between'}}>
-              
-          </View>
-
           <View style={{flex:1, flexDirection:"column", justifyContent:"flex-end"}}>
             <View style={{flexDirection:"row", justifyContent:"space-between", padding:15}}>
               <TouchableOpacity onPress={()=>{this.dontShowAgain=true;this.close()}} activeOpacity={0.4}>
                   <Text style={[styles.buttons, this.props.style.buttons]}>
-                    Don't show again
+                    {this.props.dontShowButtonText}
                   </Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={()=>{this.dontShowAgain=false;this.close()}}>
                   <Text style={[styles.buttons, this.props.style.buttons]}>
-                  Close
+                  {this.props.closeButtonText}
                   </Text>
                 </TouchableOpacity>
             </View>
@@ -292,6 +287,10 @@ class AppReview extends Component {
 
 AppReview.defaultProps = {
   animationDuration: 300,
+  headerText: "Will you help us?",
+  bodyText: "If you have a free minute, please be so kind to rate out app.",
+  closeButtonText: "Close",
+  dontShowButtonText: "Don't show again",
   style: {
     header: {
       margin: 28,
