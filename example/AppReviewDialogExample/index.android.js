@@ -41,7 +41,12 @@ class AppReviewDialogExample extends Component {
         </Text>
         <AppReview ref={"app_review"} visible={this.state.dialogVisible} onClose={(obj)=>{this.setState({dialogVisible: false});Alert.alert(
             'App Rated',
-            "rate: "+obj.rate+" dont show again: "+obj.dontShowAgain)}}/>
+            "rate: "+obj.rate+" dont show again: "+obj.dontShowAgain)}}
+          headerText={"Will you help us?"} 
+          bodyText={"If you have a free minute, please be so kind to rate out app."}
+          closeButtonText={"Close"}
+          dontShowButtonText={"Don't show again"}
+        />
       </View>
     );
   }
